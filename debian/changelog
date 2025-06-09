@@ -1,3 +1,11 @@
+candle (1.1.9-2) unstable; urgency=medium
+
+  * Fix settings file location
+  * Use defaults when no settings are found
+  * Allow any filename on command line
+
+ -- Keith Packard <keithp@keithp.com>  Mon, 09 Jun 2025 16:25:48 -0700
+
 candle (1.1.9-1) unstable; urgency=medium
 
   * Initial release.
