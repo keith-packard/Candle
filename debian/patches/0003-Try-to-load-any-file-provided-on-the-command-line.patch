@@ -1,0 +1,24 @@
+From: Keith Packard <keithp@keithp.com>
+Date: Mon, 9 Jun 2025 16:21:16 -0700
+Subject: Try to load any file provided on the command line
+
+Don't filter based upon assumptions about gcode file extensions
+
+Signed-off-by: Keith Packard <keithp@keithp.com>
+---
+ src/frmmain.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/frmmain.cpp b/src/frmmain.cpp
+index 3714253..42cf901 100644
+--- a/src/frmmain.cpp
++++ b/src/frmmain.cpp
+@@ -282,7 +282,7 @@ frmMain::frmMain(QWidget *parent) :
+     m_timerStateQuery.start();
+ 
+     // Handle file drop
+-    if (qApp->arguments().count() > 1 && isGCodeFile(qApp->arguments().last())) {
++    if (qApp->arguments().count() > 1) {
+         loadFile(qApp->arguments().last());
+     }
+ }

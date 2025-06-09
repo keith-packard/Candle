@@ -1,0 +1,69 @@
+From: Keith Packard <keithp@keithp.com>
+Date: Mon, 9 Jun 2025 16:19:21 -0700
+Subject: Let Qt pick how to store settings
+
+Apply target-specific Qt code about how to store application
+preference values by specifying the organization and application name
+rather than a file name
+
+Signed-off-by: Keith Packard <keithp@keithp.com>
+---
+ src/frmmain.cpp | 9 +++++----
+ src/frmmain.h   | 3 ++-
+ 2 files changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/src/frmmain.cpp b/src/frmmain.cpp
+index cab8602..52602d8 100644
+--- a/src/frmmain.cpp
++++ b/src/frmmain.cpp
+@@ -85,7 +85,8 @@ frmMain::frmMain(QWidget *parent) :
+                        << "black";
+ 
+     // Loading settings
+-    m_settingsFileName = qApp->applicationDirPath() + "/settings.ini";
++    m_settingsOrg = "Candle";
++    m_settingsApp = "candle";
+     preloadSettings();
+ 
+     m_settings = new frmSettings(this);
+@@ -315,7 +316,7 @@ double frmMain::toolZPosition()
+ 
+ void frmMain::preloadSettings()
+ {
+-    QSettings set(m_settingsFileName, QSettings::IniFormat);
++    QSettings set(m_settingsOrg, m_settingsApp);
+     set.setIniCodec("UTF-8");
+ 
+     qApp->setStyleSheet(QString(qApp->styleSheet()).replace(QRegExp("font-size:\\s*\\d+"), "font-size: " + set.value("fontSize", "8").toString()));
+@@ -328,7 +329,7 @@ void frmMain::preloadSettings()
+ 
+ void frmMain::loadSettings()
+ {
+-    QSettings set(m_settingsFileName, QSettings::IniFormat);
++    QSettings set(m_settingsOrg, m_settingsApp);
+     set.setIniCodec("UTF-8");
+ 
+     m_settingsLoading = true;
+@@ -482,7 +483,7 @@ void frmMain::loadSettings()
+ 
+ void frmMain::saveSettings()
+ {
+-    QSettings set(m_settingsFileName, QSettings::IniFormat);
++    QSettings set(m_settingsOrg, m_settingsApp);
+     set.setIniCodec("UTF-8");
+ 
+     set.setValue("port", m_settings->port());
+diff --git a/src/frmmain.h b/src/frmmain.h
+index c1f0ef9..b18d4bb 100644
+--- a/src/frmmain.h
++++ b/src/frmmain.h
+@@ -236,7 +236,8 @@ private:
+     frmSettings *m_settings;
+     frmAbout m_frmAbout;
+ 
+-    QString m_settingsFileName;
++    QString m_settingsOrg;
++    QString m_settingsApp;
+     QString m_programFileName;
+     QString m_heightMapFileName;
+     QString m_lastFolder;
