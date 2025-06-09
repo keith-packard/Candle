@@ -1,0 +1,26 @@
+Source: candle
+Section: graphics
+Priority: optional
+Maintainer: Keith Packard <keithp@keithp.com>
+Rules-Requires-Root: no
+Build-Depends: cmake,
+ libqt5opengl5-dev,
+ libqt5serialport5-dev,
+ qtbase5-dev,
+ dh-exec,
+ debhelper-compat (= 13),
+Standards-Version: 4.7.2
+Homepage: https://github.com/Denvi/Candle
+Vcs-Browser: https://github.com/Denvi/Candle
+Vcs-Git: https://github.com/Denvi/Candle
+
+Package: candle
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: GRBL controller application with G-Code visualizer
+ Candle supports controlling GRBL-based cnc-machine via
+ console commands, buttons on form, numpad; monitoring cnc-machine
+ state; loading, editing, saving and sending of G-code files to
+ cnc-machine; and visualizing G-code files.
