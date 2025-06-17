@@ -1,3 +1,9 @@
+candle (1.1.9-3) unstable; urgency=medium
+
+  * Reset interpreter to 0,0,0 instead of nan,nan,nan
+
+ -- Keith Packard <keithp@keithp.com>  Mon, 16 Jun 2025 21:17:39 -0700
+
 candle (1.1.9-2) unstable; urgency=medium
 
   * Fix settings file location
