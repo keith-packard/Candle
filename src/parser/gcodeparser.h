@@ -33,7 +33,7 @@ public:
     void setSpeedOverride(double speedOverride);
     int getTruncateDecimalLength();
     void setTruncateDecimalLength(int truncateDecimalLength);
-    void reset(const QVector3D &initialPoint = QVector3D(qQNaN(), qQNaN(), qQNaN()));
+    void reset(const QVector3D &initialPoint = QVector3D(0, 0, 0));
     PointSegment *addCommand(QString command);
     PointSegment *addCommand(const QStringList &args);
     QVector3D* getCurrentPoint();
