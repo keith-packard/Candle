@@ -1,3 +1,4 @@
 0001-Let-Qt-pick-how-to-store-settings.patch
 0002-Apply-default-settings-on-first-run.patch
 0003-Try-to-load-any-file-provided-on-the-command-line.patch
+0004-Define-reset-position-as-0-0-0-instead-of-nan-nan-na.patch
