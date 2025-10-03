@@ -1,0 +1,28 @@
+From: Adrian Bunk <bunk@debian.org>
+Date: Fri, 3 Oct 2025 09:05:21 -0700
+Subject: =?utf-8?q?c++=3A_error=3A_unrecognized_command-line_option_?=
+ =?utf-8?q?=E2=80=98-msse3=E2=80=99?=
+
+There is no visible reason for the -msse3,
+and it is no longer there in upstream master.
+
+The attached patch therefore removes it.
+
+Signed-off-by: Keith Packard <keithp@keithp.com>
+---
+ src/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index b924a51..ecacbb5 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -9,7 +9,7 @@ set(CMAKE_AUTOMOC ON)
+ # create code from a list of Qt designer ui files
+ set(CMAKE_AUTOUIC ON)
+ 
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -W -msse3")
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -W")
+ 
+ if(APPLE)
+     add_compile_definitions(Q_OS_MAC)
