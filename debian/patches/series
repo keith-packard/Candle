@@ -3,3 +3,4 @@
 0003-Try-to-load-any-file-provided-on-the-command-line.patch
 0004-Define-reset-position-as-0-0-0-instead-of-nan-nan-na.patch
 0005-c-error-unrecognized-command-line-option-msse3.patch
+0006-Explicitly-include-gl.h-and-glext.h-in-glwidget.h.patch

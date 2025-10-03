@@ -1,0 +1,24 @@
+From: Keith Packard <keithp@keithp.com>
+Date: Fri, 3 Oct 2025 12:33:26 -0700
+Subject: Explicitly include gl.h and glext.h in glwidget.h
+
+This appears necessary when building on armhf?
+
+Signed-off-by: Keith Packard <keithp@keithp.com>
+---
+ src/widgets/glwidget.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/widgets/glwidget.h b/src/widgets/glwidget.h
+index a04fa41..7443c51 100644
+--- a/src/widgets/glwidget.h
++++ b/src/widgets/glwidget.h
+@@ -13,6 +13,8 @@
+ #include <QTimer>
+ #include <QTime>
+ #include "drawers/shaderdrawable.h"
++#include <GL/gl.h>
++#include <GL/glext.h>
+ 
+ #ifdef GLES
+ class GLWidget : public QOpenGLWidget
