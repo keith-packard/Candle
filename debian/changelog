@@ -1,3 +1,9 @@
+candle (1.1.9-5) unstable; urgency=medium
+
+  * Add includes to fix build on armhf.
+
+ -- Keith Packard <keithp@keithp.com>  Fri, 03 Oct 2025 12:33:52 -0700
+
 candle (1.1.9-4) unstable; urgency=medium
 
   * Remove -mss3 compile option. Closes: #1117129.
