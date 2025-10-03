@@ -13,6 +13,8 @@
 #include <QTimer>
 #include <QTime>
 #include "drawers/shaderdrawable.h"
+#include <GL/gl.h>
+#include <GL/glext.h>
 
 #ifdef GLES
 class GLWidget : public QOpenGLWidget
